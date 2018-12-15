@@ -8,13 +8,13 @@ module.exports = {
       {
         exclude: /(node_modules)/,
         test: /\.jsx?$/,
-        use: 'babel-loader'
-      }
-    ]
+        use: 'babel-loader',
+      },
+    ],
   },
   output: {
     filename: 'react-locale-hoc.js',
     libraryTarget: 'commonjs2',
-    path: path.resolve('dist')
-  }
+    path: path.resolve('dist'),
+  },
 };
