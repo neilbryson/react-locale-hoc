@@ -1,0 +1,60 @@
+{
+  "name": "react-locale-hoc",
+  "version": "0.1.0",
+  "description": "A higher-order component for React for handling internationalisation.",
+  "main": "./dist/react-locale-hoc.js",
+  "author": "Neil Bryson Cargamento <neilbryson@live.com>",
+  "keywords": [
+    "i18n",
+    "internationalisation",
+    "internationalization",
+    "localisation",
+    "localization",
+    "hoc",
+    "higher order component",
+    "react"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "~7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "jest": "^23.6.0",
+    "jest-enzyme": "^7.0.1",
+    "prop-types": "^15.6.2",
+    "react": "16.3.x",
+    "react-dom": "16.3.x",
+    "regenerator-runtime": "^0.13.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/neilbryson/react-locale-hoc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neilbryson/react-locale-hoc.git"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": [
+      "text",
+      "text-summary"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/config/testSetup.js"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "jest --watch --verbose=false",
+    "test:once": "jest"
+  }
+}
