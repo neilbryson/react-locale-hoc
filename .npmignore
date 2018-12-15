@@ -1,3 +1,5 @@
 .babelrc
+.eslintrc
 src
+testSetup.js
 webpack.config.js
