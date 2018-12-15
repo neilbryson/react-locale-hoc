@@ -4,16 +4,24 @@ import LocaleContext from './LocaleContext';
 
 const localise = WrappedComponent =>
   class LocalisedComponent extends PureComponent {
-    getString = strings => stringId => strings[stringId] || stringId;
+    getString = (strings, locale) => stringId => {
+      if (!strings[locale][stringId]) {
+        // eslint-disable-next-line
+        console.warn(`[react-locale-hoc] No string found for '${stringId}' (locale: ${locale}).`);
+        return stringId;
+      }
+
+      return strings[locale][stringId];
+    };
 
     render() {
       return (
         <LocaleContext.Consumer>
-          {strings =>
-            <WrappedComponent t={this.getString(strings)} {...this.props} />
+          {({ locale, strings }) =>
+            <WrappedComponent t={this.getString(strings, locale)} {...this.props} />
           }
         </LocaleContext.Consumer>
-      )
+      );
     }
   };
 

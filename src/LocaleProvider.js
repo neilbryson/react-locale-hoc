@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import LocaleContext from './LocaleContext';
 
 const propTypes = {
-  children: PropTypes.any.isRequired,
-  strings: PropTypes.object,
+  children: PropTypes.any,
+  locale: PropTypes.string.isRequired,
+  strings: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
   children: null,
+  locale: 'en-US',
   strings: {},
 };
 
@@ -18,25 +20,14 @@ class LocaleProvider extends PureComponent {
     super(props);
 
     this.state = {
-      locale: 'en-US',
-      strings: {},
+      locale: this.props.locale,
     };
   }
 
   componentDidMount() {
     const { locale: browserLocale } = this.getBrowserLocale();
 
-    this.setState({ locale: browserLocale }, () => {
-      this.setLocalisedStrings(browserLocale);
-    });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { locale } = this.state;
-
-    if (prevState.locale !== locale) {
-      this.setLocalisedStrings(locale);
-    }
+    this.setState({ locale: browserLocale });
   }
 
   getBrowserLocale = () => {
@@ -48,19 +39,13 @@ class LocaleProvider extends PureComponent {
     return { languageCode, locale };
   };
 
-  setLocalisedStrings = locale => {
-    if (!locale) {
-      return null;
-    }
-
-    this.setState({ locale, strings: this.props.strings[locale] });
-  };
-
   render() {
-    const { strings } = this.state;
+    const { strings } = this.props;
+    const { locale } = this.state;
+    const contextValue = { locale, strings };
 
     return (
-      <LocaleContext.Provider value={strings}>
+      <LocaleContext.Provider value={contextValue}>
         {this.props.children}
       </LocaleContext.Provider>
     );
