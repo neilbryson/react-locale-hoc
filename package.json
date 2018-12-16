@@ -1,6 +1,6 @@
 {
   "name": "react-locale-hoc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A higher-order component for React for handling internationalisation.",
   "main": "./dist/react-locale-hoc.js",
   "author": "Neil Bryson Cargamento <neilbryson@live.com>",
