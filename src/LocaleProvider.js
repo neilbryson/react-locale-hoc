@@ -25,9 +25,13 @@ class LocaleProvider extends PureComponent {
   }
 
   componentDidMount() {
-    const { locale: browserLocale } = this.getBrowserLocale();
+    this.updateLocaleState();
+  }
 
-    this.setState({ locale: browserLocale });
+  componentDidUpdate(prevProps) {
+    if (prevProps.locale !== this.props.locale) {
+      this.updateLocaleState();
+    }
   }
 
   getBrowserLocale = () => {
@@ -37,6 +41,12 @@ class LocaleProvider extends PureComponent {
     const [languageCode] = locale.toLowerCase().split(/[-_]+/);
 
     return { languageCode, locale };
+  };
+
+  updateLocaleState = () => {
+    const { locale: browserLocale } = this.getBrowserLocale();
+
+    this.setState({ locale: browserLocale });
   };
 
   render() {

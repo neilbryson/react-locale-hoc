@@ -7,7 +7,7 @@ const localise = WrappedComponent =>
     getString = (strings, locale) => stringId => {
       if (!strings[locale][stringId]) {
         // eslint-disable-next-line
-        console.warn(`[react-locale-hoc] No string found for '${stringId}' (locale: ${locale}).`);
+        console.warn(`[react-locale-hoc] [${locale}] No string found for '${stringId}'.`);
         return stringId;
       }
 
