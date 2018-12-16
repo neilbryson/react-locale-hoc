@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react';
+import { sprintf } from 'sprintf-js';
 
 import LocaleContext from './LocaleContext';
 
 const localise = WrappedComponent =>
   class LocalisedComponent extends PureComponent {
-    getString = (strings, locale) => stringId => {
-      if (!strings[locale][stringId]) {
+    getString = (strings, locale) => (stringId, ...args) => {
+      if (!strings[locale] || !strings[locale][stringId]) {
         // eslint-disable-next-line
         console.warn(`[react-locale-hoc] [${locale}] No string found for '${stringId}'.`);
         return stringId;
       }
 
-      return strings[locale][stringId];
+      return sprintf(strings[locale][stringId], ...args);
     };
 
     render() {

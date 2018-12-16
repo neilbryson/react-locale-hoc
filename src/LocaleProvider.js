@@ -50,13 +50,13 @@ class LocaleProvider extends PureComponent {
   };
 
   render() {
-    const { strings } = this.props;
+    const { children, strings } = this.props;
     const { locale } = this.state;
     const contextValue = { locale, strings };
 
     return (
       <LocaleContext.Provider value={contextValue}>
-        {this.props.children}
+        {children}
       </LocaleContext.Provider>
     );
   }
