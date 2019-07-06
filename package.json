@@ -1,8 +1,9 @@
 {
   "name": "react-locale-hoc",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A higher-order component for React for handling internationalisation.",
   "main": "./dist/react-locale-hoc.js",
+  "types": "./src/index.d.ts",
   "author": "Neil Bryson Cargamento <neilbryson@live.com>",
   "keywords": [
     "i18n",
@@ -16,11 +17,11 @@
   ],
   "devDependencies": {
     "@neilbryson/eslint-config": "^1.2.0",
+    "@types/react": "^16.3.18",
     "babel-core": "^6.26.3",
     "babel-loader": "~8.0.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.16.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
@@ -31,6 +32,7 @@
     "react-dom": "16.3.x",
     "regenerator-runtime": "^0.13.1",
     "sprintf-js": "^1.1.2",
+    "typescript": "^3.5.2",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.4"
   },
