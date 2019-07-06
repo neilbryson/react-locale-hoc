@@ -9,7 +9,7 @@ interface LocaleCollection {
 }
 
 interface LocalisedProps {
-  strings: Locale;
+  strings: LocaleCollection;
 }
 
 type LocalisedComponent = React.Component<LocalisedProps, any>;
