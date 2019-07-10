@@ -1,6 +1,6 @@
 {
   "name": "react-locale-hoc",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A higher-order component for React for handling internationalisation.",
   "main": "./dist/react-locale-hoc.js",
   "types": "./src/index.d.ts",

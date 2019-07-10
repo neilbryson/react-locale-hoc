@@ -12,12 +12,12 @@ interface LocalisedProps {
   strings: LocaleCollection;
 }
 
-type LocalisedComponent = React.Component<LocalisedProps, any>;
+type LocalisedComponent = React.Component<LocalisedProps>;
 
 /**
  * A higher-order component that injects the localisation function in a component.
  */
-export function localise(WrappedComponent: React.Component): LocalisedComponent;
+export function localise<T extends React.ReactNode>(WrappedComponent: T): LocalisedComponent;
 
 /**
  * Retrieves the string based on the `stringId`. If there are no matching
